@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  facebook-webhook-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: facebook-webhook-server
+    ports:
+      - "8000:8000"
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    environment:
+        - FACEBOOK_VERIFY_TOKEN=${FACEBOOK_VERIFY_TOKEN:?test}
+        - INSTAGRAM_PAGE_ACCESS_TOKEN=${INSTAGRAM_PAGE_ACCESS_TOKEN:?test}
+        - INSTAGRAM_PAGE_ID=${INSTAGRAM_PAGE_ID:?test}
+        - MCP_HOST_KAFKA_URL=kafka:9092
+
+networks:
+  mcp-network:
+    name: mcp-network

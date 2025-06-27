@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: facebook-webhook-server
+
+facebook:
+  verify-token: ${FACEBOOK_VERIFY_TOKEN:?test}
+instagram:
+  access-token: ${INSTAGRAM_PAGE_ACCESS_TOKEN:?test}
+  page-id: ${INSTAGRAM_PAGE_ID:?test}
+
+server:
+  port: 9000
+
+kafka:
+  bootstrap-servers: ${MCP_HOST_KAFKA_URL:kafka:9092}
