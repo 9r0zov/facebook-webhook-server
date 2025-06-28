@@ -1,6 +1,6 @@
 package com.skyscanner.facebookwebhookserver.service;
 
-import com.skyscanner.facebookwebhookserver.model.api.InstagramMessage;
+import com.skyscanner.facebookwebhookserver.model.api.InstagramRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +10,13 @@ public class ReplyBodyService {
 
     private final InstagramHelper instagramHelper;
 
-    public String getTypingReply(InstagramMessage instagramMessage) {
-        var userId = instagramHelper.getInstagramUserId(instagramMessage);
+    public String getTypingReply(InstagramRequest instagramRequest) {
+        var userId = instagramHelper.getInstagramUserId(instagramRequest);
         return """
                 {
                   "messaging_product": "instagram",
                   "recipient": {"id":"%s"},
-                  "sender_action": "typing_on"
+                  "sender_action": "TYPING_ON"
                 }
                 """.formatted(userId);
     }

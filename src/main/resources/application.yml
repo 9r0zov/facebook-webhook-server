@@ -9,7 +9,11 @@ instagram:
   page-id: ${INSTAGRAM_PAGE_ID:?test}
 
 server:
-  port: 9000
+  port: 8000
 
 kafka:
   bootstrap-servers: ${MCP_HOST_KAFKA_URL:kafka:9092}
+
+logging:
+  level:
+    org.springframework.web.client.RestClient: DEBUG

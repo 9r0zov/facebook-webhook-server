@@ -3,6 +3,6 @@ package com.skyscanner.facebookwebhookserver.model.api;
 import lombok.Data;
 
 @Data
-public class Sender{
+public class Recipient{
 	private String id;
 }

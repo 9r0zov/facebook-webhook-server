@@ -1,9 +1,8 @@
 package com.skyscanner.facebookwebhookserver.controller;
 
-import com.skyscanner.facebookwebhookserver.model.api.InstagramMessage;
+import com.skyscanner.facebookwebhookserver.model.api.InstagramRequest;
 import com.skyscanner.facebookwebhookserver.service.MessageQueueService;
-import com.skyscanner.facebookwebhookserver.service.ReplyBodyService;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,21 +10,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/webhook")
-@Slf4j
+@Log4j2
 public class FacebookWebhookController {
 
     private static final String FB_MODE_SUBSCRIBE = "subscribe";
 
     private final String verifyToken;
     private final MessageQueueService messageQueueService;
-    private final ReplyBodyService replyBodyService;
 
     public FacebookWebhookController(@Value("${facebook.verify-token}") String verifyToken,
-                                     MessageQueueService messageQueueService,
-                                     ReplyBodyService replyBodyService) {
+                                     MessageQueueService messageQueueService) {
         this.verifyToken = verifyToken;
         this.messageQueueService = messageQueueService;
-        this.replyBodyService = replyBodyService;
     }
 
     @GetMapping
@@ -41,9 +37,13 @@ public class FacebookWebhookController {
     }
 
     @PostMapping
-    public ResponseEntity<String> handleWebhook(@RequestBody InstagramMessage instagramMessage) {
-        log.info("Received webhook payload: {}", instagramMessage);
-        messageQueueService.submitMessage(instagramMessage);
-        return ResponseEntity.ok(replyBodyService.getTypingReply(instagramMessage));
+    public ResponseEntity<String> handleWebhook(@RequestBody InstagramRequest instagramRequest) {
+        log.info("Received webhook payload: {}", instagramRequest);
+        try {
+            messageQueueService.submitMessage(instagramRequest);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+        return ResponseEntity.ok("EVENT_RECEIVED");
     }
 }

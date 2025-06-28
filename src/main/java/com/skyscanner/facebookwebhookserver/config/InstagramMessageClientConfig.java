@@ -16,9 +16,9 @@ public class InstagramMessageClientConfig {
     @Bean
     public RestClient instagramClient() {
         return RestClient.builder()
-                .baseUrl("https://graph.facebook.com/v19.0/" + pageId + "/messages")
+                .baseUrl("https://graph.facebook.com/v23.0/" + pageId + "/messages?access_token=" + accessToken)
                 .defaultHeader("Content-Type", "application/json")
-                .defaultHeader("Authorization", "Bearer " + accessToken)
+                .requestInterceptor(new LoggingInterceptor())
                 .build();
     }
 

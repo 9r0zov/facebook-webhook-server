@@ -1,8 +1,10 @@
 package com.skyscanner.facebookwebhookserver.service;
 
+import com.skyscanner.facebookwebhookserver.client.InstagramMessageClient;
 import com.skyscanner.facebookwebhookserver.model.KafkaChatMessage;
-import com.skyscanner.facebookwebhookserver.model.api.InstagramMessage;
+import com.skyscanner.facebookwebhookserver.model.api.InstagramRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +14,18 @@ public class MessageQueueService {
 
     private final KafkaTemplate<String, KafkaChatMessage> kafkaTemplate;
     private final InstagramHelper instagramHelper;
+    private final ReplyBodyService replyBodyService;
+    private final InstagramMessageClient instagramMessageClient;
 
-    public void submitMessage(InstagramMessage message) {
+    @SneakyThrows
+    public void submitMessage(InstagramRequest request) {
+        String typingReply = replyBodyService.getTypingReply(request);
+//        instagramMessageClient.typingReply(typingReply);
+
         KafkaChatMessage kafkaChatMessage = new KafkaChatMessage(
-                instagramHelper.getInstagramUserId(message),
-                instagramHelper.getInstagramMessageId(message),
-                instagramHelper.getInstagramMessage(message));
+                instagramHelper.getInstagramUserId(request),
+                instagramHelper.getInstagramMessageId(request),
+                instagramHelper.getInstagramMessage(request));
         kafkaTemplate.send("chat-messages", kafkaChatMessage);
     }
 

@@ -8,8 +8,8 @@ import java.util.Collection;
 @Component
 public class InstagramHelper {
 
-    public String getInstagramUserId(InstagramMessage instagramMessage) {
-        return instagramMessage.getEntry().stream()
+    public String getInstagramUserId(InstagramRequest instagramRequest) {
+        return instagramRequest.getEntry().stream()
                 .map(EntryItem::getMessaging)
                 .flatMap(Collection::stream)
                 .map(MessagingItem::getSender)
@@ -18,8 +18,8 @@ public class InstagramHelper {
                 .orElseThrow(() -> new IllegalArgumentException("User ID not found"));
     }
 
-    public String getInstagramMessageId(InstagramMessage instagramMessage) {
-        return instagramMessage.getEntry().stream()
+    public String getInstagramMessageId(InstagramRequest instagramRequest) {
+        return instagramRequest.getEntry().stream()
                 .map(EntryItem::getMessaging)
                 .flatMap(Collection::stream)
                 .map(MessagingItem::getMessage)
@@ -28,8 +28,8 @@ public class InstagramHelper {
                 .orElseThrow(() -> new IllegalArgumentException("Message ID not found"));
     }
 
-    public String getInstagramMessage(InstagramMessage instagramMessage) {
-        return instagramMessage.getEntry().stream()
+    public String getInstagramMessage(InstagramRequest instagramRequest) {
+        return instagramRequest.getEntry().stream()
                 .map(EntryItem::getMessaging)
                 .flatMap(Collection::stream)
                 .map(MessagingItem::getMessage)
