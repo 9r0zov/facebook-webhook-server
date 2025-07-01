@@ -1,6 +1,6 @@
-package com.skyscanner.facebookwebhookserver.config;
+package com.grozoww.facebookwebhookserver.config;
 
-import com.skyscanner.facebookwebhookserver.model.KafkaChatMessage;
+import com.grozoww.facebookwebhookserver.model.KafkaChatMessage;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

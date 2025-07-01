@@ -1,6 +1,6 @@
-package com.skyscanner.facebookwebhookserver.service;
+package com.grozoww.facebookwebhookserver.service;
 
-import com.skyscanner.facebookwebhookserver.model.api.InstagramRequest;
+import com.grozoww.facebookwebhookserver.model.api.InstagramRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

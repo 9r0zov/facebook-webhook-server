@@ -1,4 +1,4 @@
-package com.skyscanner.facebookwebhookserver.client;
+package com.grozoww.facebookwebhookserver.client;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

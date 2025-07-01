@@ -1,4 +1,4 @@
-package com.skyscanner.facebookwebhookserver;
+package com.grozoww.facebookwebhookserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,8 +1,8 @@
-package com.skyscanner.facebookwebhookserver.listener;
+package com.grozoww.facebookwebhookserver.listener;
 
-import com.skyscanner.facebookwebhookserver.client.InstagramMessageClient;
-import com.skyscanner.facebookwebhookserver.model.KafkaChatMessage;
-import com.skyscanner.facebookwebhookserver.service.ReplyBodyService;
+import com.grozoww.facebookwebhookserver.client.InstagramMessageClient;
+import com.grozoww.facebookwebhookserver.model.KafkaChatMessage;
+import com.grozoww.facebookwebhookserver.service.ReplyBodyService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;

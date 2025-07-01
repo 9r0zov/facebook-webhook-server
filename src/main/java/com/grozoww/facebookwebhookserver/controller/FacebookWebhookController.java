@@ -1,7 +1,7 @@
-package com.skyscanner.facebookwebhookserver.controller;
+package com.grozoww.facebookwebhookserver.controller;
 
-import com.skyscanner.facebookwebhookserver.model.api.InstagramRequest;
-import com.skyscanner.facebookwebhookserver.service.MessageQueueService;
+import com.grozoww.facebookwebhookserver.model.api.InstagramRequest;
+import com.grozoww.facebookwebhookserver.service.MessageQueueService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;

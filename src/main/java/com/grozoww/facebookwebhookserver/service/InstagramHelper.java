@@ -1,6 +1,6 @@
-package com.skyscanner.facebookwebhookserver.service;
+package com.grozoww.facebookwebhookserver.service;
 
-import com.skyscanner.facebookwebhookserver.model.api.*;
+import com.grozoww.facebookwebhookserver.model.api.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;

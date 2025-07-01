@@ -1,8 +1,8 @@
-package com.skyscanner.facebookwebhookserver.service;
+package com.grozoww.facebookwebhookserver.service;
 
-import com.skyscanner.facebookwebhookserver.client.InstagramMessageClient;
-import com.skyscanner.facebookwebhookserver.model.KafkaChatMessage;
-import com.skyscanner.facebookwebhookserver.model.api.InstagramRequest;
+import com.grozoww.facebookwebhookserver.client.InstagramMessageClient;
+import com.grozoww.facebookwebhookserver.model.KafkaChatMessage;
+import com.grozoww.facebookwebhookserver.model.api.InstagramRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.kafka.core.KafkaTemplate;

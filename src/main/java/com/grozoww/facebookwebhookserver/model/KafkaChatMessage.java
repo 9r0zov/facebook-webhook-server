@@ -1,4 +1,4 @@
-package com.skyscanner.facebookwebhookserver.model;
+package com.grozoww.facebookwebhookserver.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

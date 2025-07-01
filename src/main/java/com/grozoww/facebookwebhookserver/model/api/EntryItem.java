@@ -1,4 +1,4 @@
-package com.skyscanner.facebookwebhookserver.model.api;
+package com.grozoww.facebookwebhookserver.model.api;
 
 import java.util.List;
 import lombok.Data;
